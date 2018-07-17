@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <link rel="stylesheet" href="static/css/flex.css" media="(min-width: 1280px)">
+    <link rel="stylesheet" href="static/css/flex_mobile.css" media="(min-width: 320px) and (max-width: 767px)">
+    <link rel="stylesheet" href="static/css/flex_tablet.css" media="(min-width: 768px) and (max-width: 1279px)">
+    <script type="text/javascript" src="webjars/jquery/jquery.js"></script>
+
+</head>
+<body>
+<h1>Hello! Spring cloud sample!</h1>
+<h2>Please select file for uploading amazon s3.</h2>
+<form id="form" action="/s3/upload" method="post" enctype="multipart/form-data">
+  <input id="uploadFile" name="uploadFile" type="file" value=""/>
+  <button id="confrim" name="confrim" class="main-button" type="submit" value="Submit">ファイルアップロード</button>
+</form>
+</body>
+</html>

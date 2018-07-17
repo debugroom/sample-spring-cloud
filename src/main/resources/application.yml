@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+cloud:
+  aws:
+    stack:
+      auto: false
+queue:
+  endpoint: https://sqs.ap-northeast-1.amazonaws.com/
+bucket:
+  name: debugroom-sample

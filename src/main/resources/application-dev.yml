@@ -1,0 +1,7 @@
+cloud:
+  aws:
+    credentials:
+      profileName:
+      instanceProfile: false
+    region:
+      auto: false
