@@ -9,3 +9,7 @@ queue:
   endpoint: https://sqs.ap-northeast-1.amazonaws.com/
 bucket:
   name: debugroom-sample
+s3:
+  upload:
+    role:
+      name: sample-s3-access-role
