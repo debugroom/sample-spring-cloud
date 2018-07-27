@@ -14,3 +14,11 @@ s3:
   upload:
     role:
       name: sample-s3-access-role
+      session:
+        name: sample
+  download:
+    role:
+      name: sample-s3-access-role
+      session:
+        name: sample
+    durationseconds: 600

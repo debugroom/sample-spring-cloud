@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.debugroom.sample.spring.cloud.app.model.FileUploadModel;
+import org.debugroom.sample.spring.cloud.app.model.FileUploadForm;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +19,7 @@ public class SampleController {
     S3FileUploadHelper s3FileUploadHelper;
 
     @RequestMapping(method = RequestMethod.POST, value="/s3/upload")
-    public String upload(FileUploadModel fileUploadModel){
+    public String upload(FileUploadForm fileUploadModel){
         s3FileUploadHelper.saveFile(fileUploadModel.getUploadFile());
         return "redirect:/uploadResult.html";
     }

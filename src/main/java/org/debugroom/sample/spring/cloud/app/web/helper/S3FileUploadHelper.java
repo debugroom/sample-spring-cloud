@@ -1,7 +1,14 @@
 package org.debugroom.sample.spring.cloud.app.web.helper;
 
+import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
+import com.amazonaws.auth.policy.Policy;
+import com.amazonaws.auth.policy.Resource;
+import com.amazonaws.auth.policy.Statement;
+import com.amazonaws.auth.policy.actions.S3Actions;
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
 import com.amazonaws.services.identitymanagement.model.GetRoleRequest;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,13 +27,12 @@ public class S3FileUploadHelper implements InitializingBean {
 
     private static final String S3_BUCKET_PREFIX = "s3://";
     private static final String DIRECTORY_DELIMITER = "/";
-    public static final int STS_MIN_DURATION_MINUTES = 15;
 
     @Value("${bucket.name}")
     private String bucketName;
-
     @Value("${s3.upload.role.name}")
     private String roleName;
+    private String roleArn;
 
     @Inject
     ResourceLoader resourceLoader;
@@ -50,9 +56,9 @@ public class S3FileUploadHelper implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        String roleArn;
         GetRoleRequest getRoleRequest = new GetRoleRequest().withRoleName(roleName);
         roleArn = AmazonIdentityManagementClientBuilder.defaultClient()
                 .getRole(getRoleRequest).getRole().getArn();
     }
+
 }
