@@ -1,6 +1,6 @@
 # Dockerfile for sample service using embedded tomcat server
 
-FROM       docker.io/debugroom/wedding:centos7
+FROM centos:centos7
 MAINTAINER debugroom
 
 RUN yum install -y \
